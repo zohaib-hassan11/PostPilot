@@ -1,0 +1,94 @@
+{
+    "name": "socialhub/app",
+    "type": "project",
+    "description": "Social Hub \u2014 post once, publish everywhere. Self-hosted social media publishing (Laravel).",
+    "keywords": [
+        "social-media",
+        "scheduler",
+        "publishing",
+        "laravel"
+    ],
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.2",
+        "inovector/mixpost": "*@dev",
+        "inovector/mixpost-auth": "*@dev",
+        "laravel/framework": "^12.0",
+        "laravel/horizon": "^5.15",
+        "laravel/tinker": "^2.8",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "league/flysystem-sftp-v3": "^3.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^8.1",
+        "phpunit/phpunit": "^11.1",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan mixpost:publish-assets --force=true",
+            "@php artisan vendor:publish --tag=mixpost-auth-assets --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php artisan mixpost:setup-gitignore",
+            "@php artisan queue:batches-table",
+            "@php artisan mixpost:publish",
+            "@php artisan storage:link"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/mixpost",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "packages/mixpost-auth",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-fe0tGO5B.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/Inter-Medium.ttf": {
+    "file": "assets/Inter-Medium-DmUT3eZm.ttf",
+    "src": "resources/fonts/Inter-Medium.ttf"
+  },
+  "resources/fonts/Inter-Regular.ttf": {
+    "file": "assets/Inter-Regular-CKX1N0ak.ttf",
+    "src": "resources/fonts/Inter-Regular.ttf"
+  },
+  "resources/fonts/Inter-SemiBold.ttf": {
+    "file": "assets/Inter-SemiBold-DtdDzxp6.ttf",
+    "src": "resources/fonts/Inter-SemiBold.ttf"
+  }
+}

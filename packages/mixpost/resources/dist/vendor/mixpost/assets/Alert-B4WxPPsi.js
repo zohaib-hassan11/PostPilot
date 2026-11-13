@@ -1,0 +1,1 @@
+import{_ as t}from"./Alert-DBgO0l19.js";import{g as o,o as r,w as l,x as s}from"./app-nrMMX-21.js";const f={__name:"Alert",props:{variant:{type:String,default:"info"},closeable:{type:Boolean,default:!0}},setup(a){return(e,n)=>(r(),o(t,{variant:a.variant,closeable:a.closeable},{default:l(()=>[s(e.$slots,"default")]),_:3},8,["variant","closeable"]))}};export{f as _};
